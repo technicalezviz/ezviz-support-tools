@@ -1,0 +1,703 @@
+/* ==============================
+   MÀU SẮC CHUNG
+============================== */
+
+:root {
+    --ezviz-blue: #0082d6;
+    --ezviz-blue-dark: #0068ad;
+    --ezviz-light: #eef7fd;
+    --page-background: #f3f7fb;
+    --text-main: #273444;
+    --text-secondary: #667085;
+    --border-color: #dce8f2;
+}
+
+
+/* ==============================
+   TOÀN BỘ TRANG
+============================== */
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: var(--text-main);
+    background: var(--page-background);
+}
+
+
+/* ==============================
+   PHẦN ĐẦU TRANG
+============================== */
+
+.hero-section {
+    color: white;
+    background:
+        linear-gradient(
+            135deg,
+            #0075c4 0%,
+            #009ee3 100%
+        );
+}
+
+.hero-section h1 {
+    font-size: clamp(28px, 4vw, 45px);
+    letter-spacing: -0.5px;
+}
+
+.hero-section p {
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.brand-badge {
+    display: inline-block;
+    padding: 7px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 999px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+
+/* ==============================
+   KHUNG NỘI DUNG
+============================== */
+
+.calculator-container {
+    margin-top: -25px;
+    position: relative;
+    z-index: 2;
+}
+
+.calculator-card,
+.result-card {
+    border: 0;
+    border-radius: 18px;
+    box-shadow: 0 10px 35px rgba(40, 75, 110, 0.1);
+}
+
+.section-title {
+    margin-bottom: 24px;
+    color: var(--ezviz-blue);
+    font-size: 22px;
+    font-weight: 750;
+}
+
+
+/* ==============================
+   FORM
+============================== */
+
+.form-control,
+.form-select {
+    border-color: #d4dee8;
+    border-radius: 11px;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--ezviz-blue);
+    box-shadow: 0 0 0 4px rgba(0, 130, 214, 0.12);
+}
+
+
+/* ==============================
+   THÔNG TIN CAMERA
+============================== */
+
+.camera-info-box {
+    padding: 8px 18px;
+    border: 1px solid var(--border-color);
+    border-radius: 13px;
+    background: var(--ezviz-light);
+}
+
+.camera-info-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.camera-info-row:last-child {
+    border-bottom: 0;
+}
+
+.camera-info-row span {
+    color: var(--text-secondary);
+}
+
+.camera-info-row strong {
+    color: var(--ezviz-blue);
+}
+
+
+/* ==============================
+   CHẾ ĐỘ SỬ DỤNG
+============================== */
+
+.usage-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    height: 100%;
+    padding: 17px;
+    border: 1px solid var(--border-color);
+    border-radius: 13px;
+    background: #fff;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.usage-option:hover {
+    border-color: var(--ezviz-blue);
+    background: var(--ezviz-light);
+    transform: translateY(-2px);
+}
+
+.usage-option input {
+    margin-top: 5px;
+    flex-shrink: 0;
+}
+
+.usage-option span {
+    display: flex;
+    flex-direction: column;
+}
+
+.usage-option strong {
+    margin-bottom: 4px;
+}
+
+.usage-option small {
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+.form-check-input:checked {
+    border-color: var(--ezviz-blue);
+    background-color: var(--ezviz-blue);
+}
+
+
+/* ==============================
+   VÙNG NHẬP THEO CHẾ ĐỘ
+============================== */
+
+.mode-area {
+    padding: 20px;
+    border: 1px dashed #acd5ef;
+    border-radius: 13px;
+    background: #f8fcff;
+}
+
+.mode-area label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.mode-area input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #d4dee8;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.mode-area input:not(:last-child) {
+    margin-bottom: 16px;
+}
+
+.mode-area input:focus {
+    outline: none;
+    border-color: var(--ezviz-blue);
+    box-shadow: 0 0 0 4px rgba(0, 130, 214, 0.12);
+}
+
+
+/* ==============================
+   TÙY CHỌN
+============================== */
+
+.option-check {
+    padding: 15px 16px 15px 45px;
+    border: 1px solid var(--border-color);
+    border-radius: 11px;
+    background: #fbfdff;
+}
+
+.option-check .form-check-input {
+    margin-left: -27px;
+}
+
+
+/* ==============================
+   NÚT TÍNH TOÁN
+============================== */
+
+.calculate-button {
+    padding: 17px;
+    border: 0;
+    border-radius: 13px;
+    color: white;
+    font-weight: 750;
+    letter-spacing: 0.5px;
+    background:
+        linear-gradient(
+            135deg,
+            var(--ezviz-blue),
+            #00a4e8
+        );
+    box-shadow: 0 10px 25px rgba(0, 130, 214, 0.25);
+    transition: 0.2s ease;
+}
+
+.calculate-button:hover {
+    color: white;
+    background:
+        linear-gradient(
+            135deg,
+            var(--ezviz-blue-dark),
+            #008cc8
+        );
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(0, 130, 214, 0.35);
+}
+
+.calculate-button:active {
+    transform: translateY(0);
+}
+
+
+/* ==============================
+   KẾT QUẢ
+============================== */
+
+.result-card {
+    top: 20px;
+}
+
+.result-description {
+    margin-top: -10px;
+    margin-bottom: 22px;
+    color: var(--text-secondary);
+}
+
+.result-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 14px;
+    padding: 17px;
+    border: 1px solid var(--border-color);
+    border-radius: 13px;
+    background: #fbfdff;
+}
+
+.result-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    font-size: 22px;
+    background: var(--ezviz-light);
+}
+
+.result-item span {
+    display: block;
+    margin-bottom: 3px;
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.result-item strong {
+    display: block;
+    color: var(--ezviz-blue);
+    font-size: 24px;
+}
+
+.sim-result-box {
+    padding: 21px;
+    border-radius: 14px;
+    text-align: center;
+    color: white;
+    background:
+        linear-gradient(
+            135deg,
+            #00a876,
+            #19c795
+        );
+}
+
+.sim-result-box span {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.sim-result-box strong {
+    display: block;
+    font-size: 27px;
+}
+
+
+/* ==============================
+   CHÂN TRANG
+============================== */
+
+.footer-section {
+    padding: 28px 15px;
+    color: #718096;
+    background: #e8eff5;
+}
+
+
+/* ==============================
+   ĐIỆN THOẠI
+============================== */
+
+@media (max-width: 767px) {
+
+    .hero-section {
+        padding-top: 35px !important;
+        padding-bottom: 55px !important;
+    }
+
+    .calculator-container {
+        margin-top: -30px;
+    }
+
+    .card-body {
+        padding: 21px !important;
+    }
+
+    .section-title {
+        font-size: 20px;
+    }
+
+    .camera-info-row {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 3px;
+    }
+
+    .result-card {
+        position: static !important;
+    }
+
+}
+/* ==============================
+   THANH MENU
+============================== */
+
+.support-navbar {
+    padding: 14px 0;
+    background: #ffffff;
+    box-shadow: 0 3px 16px rgba(30, 70, 100, 0.08);
+}
+
+.brand-logo {
+    display: inline-block;
+    margin-right: 8px;
+    padding: 5px 11px;
+    border-radius: 7px;
+    color: white;
+    background: var(--ezviz-blue);
+    letter-spacing: 2px;
+}
+
+.brand-name {
+    color: #243447;
+}
+
+.support-navbar .nav-link {
+    margin-left: 8px;
+    color: #52606d;
+    font-weight: 600;
+}
+
+.support-navbar .nav-link.active {
+    color: var(--ezviz-blue);
+}
+
+
+/* ==============================
+   HERO
+============================== */
+
+.hero-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    border-radius: 22px;
+    font-size: 34px;
+    background: rgba(255, 255, 255, 0.16);
+}
+
+
+/* ==============================
+   DANH SÁCH CÔNG CỤ
+============================== */
+
+.tools-section {
+    position: relative;
+    z-index: 3;
+    margin-top: -30px;
+    margin-bottom: 45px;
+}
+
+.tool-card {
+    display: flex;
+    gap: 15px;
+    height: 100%;
+    padding: 22px;
+    border-radius: 16px;
+    background: white;
+    box-shadow: 0 10px 30px rgba(40, 75, 110, 0.12);
+}
+
+.tool-card h3 {
+    margin-bottom: 7px;
+    font-size: 18px;
+    font-weight: 750;
+}
+
+.tool-card p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.tool-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 13px;
+    color: var(--ezviz-blue);
+    font-size: 23px;
+    background: var(--ezviz-light);
+}
+
+.active-tool {
+    border: 2px solid var(--ezviz-blue);
+}
+
+.upcoming-tool {
+    opacity: 0.72;
+}
+
+.upcoming-tool span {
+    display: inline-block;
+    margin-top: 9px;
+    padding: 3px 9px;
+    border-radius: 999px;
+    color: #8a5a00;
+    font-size: 12px;
+    font-weight: 700;
+    background: #fff0c2;
+}
+
+
+/* ==============================
+   TIÊU ĐỀ CÔNG CỤ
+============================== */
+
+.calculator-heading {
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.calculator-heading h2 {
+    margin-top: 13px;
+    color: #243447;
+    font-size: 29px;
+    font-weight: 750;
+}
+
+.calculator-heading p {
+    color: var(--text-secondary);
+}
+
+.section-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 999px;
+    color: var(--ezviz-blue);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    background: var(--ezviz-light);
+}
+
+
+/* ==============================
+   ĐIỆN THOẠI
+============================== */
+
+@media (max-width: 767px) {
+
+    .tools-section {
+        margin-top: -22px;
+    }
+
+    .calculator-heading h2 {
+        font-size: 23px;
+    }
+
+    .brand-name {
+        font-size: 15px;
+    }
+
+}
+/* ==============================
+   THẺ SẢN PHẨM CAMERA
+============================== */
+
+.camera-product-card {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 24px;
+    padding: 22px;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    background:
+        linear-gradient(
+            135deg,
+            #f8fcff,
+            #eef8fe
+        );
+}
+
+.camera-image-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 180px;
+    overflow: hidden;
+    border-radius: 14px;
+    background: #ffffff;
+    border: 1px solid #dce8f2;
+}
+
+.camera-image-box img {
+    display: none;
+    width: 100%;
+    height: 180px;
+    padding: 12px;
+    object-fit: contain;
+}
+
+.camera-image-fallback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 180px;
+    color: var(--ezviz-blue);
+    font-size: 62px;
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #eaf6fd
+        );
+}
+
+.camera-product-content {
+    min-width: 0;
+}
+
+.camera-product-badge {
+    display: inline-block;
+    margin-bottom: 8px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    color: var(--ezviz-blue);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    background: #dff3ff;
+}
+
+.camera-product-content h3 {
+    margin-bottom: 6px;
+    color: #243447;
+    font-size: 24px;
+    font-weight: 750;
+}
+
+.camera-product-content > p {
+    margin-bottom: 18px;
+    color: var(--text-secondary);
+}
+
+.camera-feature-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.camera-feature-list > div {
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    padding: 11px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.85);
+}
+
+.camera-feature-list i {
+    grid-row: span 2;
+    align-self: center;
+    color: var(--ezviz-blue);
+    font-size: 18px;
+}
+
+.camera-feature-list span {
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+.camera-feature-list strong {
+    color: #243447;
+    font-size: 14px;
+}
+
+
+/* ==============================
+   CAMERA TRÊN ĐIỆN THOẠI
+============================== */
+
+@media (max-width: 767px) {
+
+    .camera-product-card {
+        grid-template-columns: 1fr;
+    }
+
+    .camera-image-box,
+    .camera-image-box img,
+    .camera-image-fallback {
+        height: 220px;
+    }
+
+    .camera-feature-list {
+        grid-template-columns: 1fr;
+    }
+
+}

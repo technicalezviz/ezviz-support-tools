@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Công cụ tính toán dữ liệu 4G cho Camera EZVIZ
+    </title>
+
+    <!-- Bootstrap CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+        crossorigin="anonymous"
+    >
+
+    <!-- CSS riêng -->
+     <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- PHẦN ĐẦU TRANG -->
+    <nav class="navbar navbar-expand-lg support-navbar">
+    <div class="container">
+
+        <a class="navbar-brand fw-bold" href="#">
+            <span class="brand-logo">EZVIZ</span>
+            <span class="brand-name">Support Tools</span>
+        </a>
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainMenu"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainMenu">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="#calculator">
+                        Tính dữ liệu 4G
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">
+                        Tra cứu Camera
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">
+                        Tính dung lượng HDD
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+</nav>
+
+
+<header class="hero-section py-5">
+
+    <div class="container text-center">
+
+        <div class="hero-icon mb-3">
+            <i class="bi bi-camera-video-fill"></i>
+        </div>
+
+        <h1 class="fw-bold mb-3">
+            EZVIZ SUPPORT TOOLS
+        </h1>
+
+        <p class="lead mb-0">
+            Bộ công cụ hỗ trợ kỹ thuật và tư vấn sản phẩm Camera EZVIZ
+        </p>
+
+    </div>
+
+</header>
+
+
+    <section class="container tools-section">
+
+    <div class="row g-3">
+
+        <div class="col-md-4">
+
+            <div class="tool-card active-tool">
+
+                <div class="tool-icon">
+                    <i class="bi bi-reception-4"></i>
+                </div>
+
+                <div>
+                    <h3>Tính dữ liệu 4G</h3>
+                    <p>Ước tính dung lượng Data cho Camera EZVIZ.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-md-4">
+
+            <div class="tool-card upcoming-tool">
+
+                <div class="tool-icon">
+                    <i class="bi bi-search"></i>
+                </div>
+
+                <div>
+                    <h3>Tra cứu Camera</h3>
+                    <p>Xem thông số và tính năng của từng model.</p>
+                    <span>Sắp ra mắt</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-md-4">
+
+            <div class="tool-card upcoming-tool">
+
+                <div class="tool-icon">
+                    <i class="bi bi-device-hdd-fill"></i>
+                </div>
+
+                <div>
+                    <h3>Tính dung lượng HDD</h3>
+                    <p>Tính thời gian lưu trữ theo số lượng Camera.</p>
+                    <span>Sắp ra mắt</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<main
+    id="calculator"
+    class="container calculator-container pb-5"
+>
+
+    <div class="calculator-heading text-center mb-4">
+
+        <span class="section-badge">
+            CÔNG CỤ ĐANG SỬ DỤNG
+        </span>
+
+        <h2>
+            CÔNG CỤ TÍNH TOÁN DỮ LIỆU 4G CHO CAMERA EZVIZ
+        </h2>
+
+        <p>
+            Ước tính dung lượng dữ liệu theo nhu cầu sử dụng,
+            giúp lựa chọn gói SIM phù hợp.
+        </p>
+
+    </div>
+
+        <div class="row g-4">
+
+            <!-- CỘT TRÁI -->
+            <div class="col-lg-7">
+
+                <!-- THÔNG TIN CAMERA -->
+                <section class="card calculator-card mb-4">
+
+                    <div class="card-body p-4">
+
+                        <h2 class="section-title">
+                            📷 Thông tin Camera
+                        </h2>
+
+                        <div class="mb-4">
+
+                            <label
+                                for="cameraModel"
+                                class="form-label fw-semibold"
+                            >
+                                Mẫu Camera
+                            </label>
+
+                            <select
+                                id="cameraModel"
+                                class="form-select form-select-lg"
+                            >
+                                <option>
+                                    Đang tải danh sách Camera...
+                                </option>
+                            </select>
+
+                        </div>
+                        <div class="camera-product-card mb-4">
+
+    <div class="camera-image-box">
+
+        <img
+            id="cameraImage"
+            src=""
+            alt="Hình ảnh Camera EZVIZ"
+        >
+
+        <div
+            id="cameraImageFallback"
+            class="camera-image-fallback"
+        >
+            <i class="bi bi-camera-video-fill"></i>
+        </div>
+
+    </div>
+
+    <div class="camera-product-content">
+
+        <span class="camera-product-badge">
+            CAMERA 4G
+        </span>
+
+        <h3 id="cameraName">
+            Đang tải...
+        </h3>
+
+        <p id="cameraDescription">
+            Đang tải thông tin Camera.
+        </p>
+
+        <div class="camera-feature-list">
+
+            <div>
+                <i class="bi bi-battery-charging"></i>
+
+                <span>
+                    Pin / nguồn
+                </span>
+
+                <strong id="cameraBattery">
+                    --
+                </strong>
+            </div>
+
+            <div>
+                <i class="bi bi-reception-4"></i>
+
+                <span>
+                    Kết nối
+                </span>
+
+                <strong id="cameraNetwork">
+                    --
+                </strong>
+            </div>
+
+            <div>
+                <i class="bi bi-person-bounding-box"></i>
+
+                <span>
+                    AI
+                </span>
+
+                <strong id="cameraAI">
+                    --
+                </strong>
+            </div>
+
+            <div>
+                <i class="bi bi-house-gear"></i>
+
+                <span>
+                    Lắp đặt
+                </span>
+
+                <strong id="cameraInstallation">
+                    --
+                </strong>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+                        <!-- THÔNG SỐ CAMERA -->
+                        <div class="camera-info-box mb-4">
+
+                            <div class="camera-info-row">
+
+                                <span>Độ phân giải</span>
+
+                                <strong id="resolution">
+                                    --
+                                </strong>
+
+                            </div>
+
+                            <div class="camera-info-row">
+
+                                <span>Chuẩn nén video</span>
+
+                                <strong id="codec">
+                                    --
+                                </strong>
+
+                            </div>
+
+                            <div class="camera-info-row">
+
+                                <span>Bitrate ước tính</span>
+
+                                <strong id="bitrateInfo">
+                                    --
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div>
+
+                            <label
+                                for="cameraCount"
+                                class="form-label fw-semibold"
+                            >
+                                Số lượng Camera
+                            </label>
+
+                            <input
+                                type="number"
+                                id="cameraCount"
+                                class="form-control form-control-lg"
+                                value="1"
+                                min="1"
+                                max="100"
+                            >
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- CÁCH SỬ DỤNG -->
+                <section class="card calculator-card mb-4">
+
+                    <div class="card-body p-4">
+
+                        <h2 class="section-title">
+                            📶 Cách sử dụng
+                        </h2>
+
+                        <div class="row g-3 usage-options">
+
+                            <div class="col-md-6">
+
+                                <label class="usage-option">
+
+                                    <input
+                                        class="form-check-input"
+                                        type="radio"
+                                        name="mode"
+                                        value="live"
+                                        checked
+                                    >
+
+                                    <span>
+                                        <strong>
+                                            Xem trực tiếp
+                                        </strong>
+
+                                        <small>
+                                            Xem camera từ xa qua ứng dụng
+                                        </small>
+                                    </span>
+
+                                </label>
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <label class="usage-option">
+
+                                    <input
+                                        class="form-check-input"
+                                        type="radio"
+                                        name="mode"
+                                        value="ai"
+                                    >
+
+                                    <span>
+                                        <strong>
+                                            Phát hiện AI
+                                        </strong>
+
+                                        <small>
+                                            Ghi hình khi có sự kiện
+                                        </small>
+                                    </span>
+
+                                </label>
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <label class="usage-option">
+
+                                    <input
+                                        class="form-check-input"
+                                        type="radio"
+                                        name="mode"
+                                        value="continuous"
+                                    >
+
+                                    <span>
+                                        <strong>
+                                            Ghi hình liên tục
+                                        </strong>
+
+                                        <small>
+                                            Ghi hình liên tục trong ngày
+                                        </small>
+                                    </span>
+
+                                </label>
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <label class="usage-option">
+
+                                    <input
+                                        class="form-check-input"
+                                        type="radio"
+                                        name="mode"
+                                        value="custom"
+                                    >
+
+                                    <span>
+                                        <strong>
+                                            Tùy chỉnh
+                                        </strong>
+
+                                        <small>
+                                            Tự nhập bitrate và thời gian
+                                        </small>
+                                    </span>
+
+                                </label>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- JavaScript tự tạo ô nhập -->
+                        <div
+                            id="modeArea"
+                            class="mode-area mt-4"
+                        >
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- TÙY CHỌN -->
+                <section class="card calculator-card mb-4">
+
+                    <div class="card-body p-4">
+
+                        <h2 class="section-title">
+                            ⚙️ Tùy chọn
+                        </h2>
+
+                        <div class="form-check option-check mb-3">
+
+                            <input
+                                class="form-check-input"
+                                type="checkbox"
+                                id="safetyMargin"
+                                checked
+                            >
+
+                            <label
+                                class="form-check-label"
+                                for="safetyMargin"
+                            >
+                                Cộng thêm 20% dữ liệu dự phòng
+                            </label>
+
+                        </div>
+
+
+                        <div class="form-check option-check">
+
+                            <input
+                                class="form-check-input"
+                                type="checkbox"
+                                id="showHourly"
+                                checked
+                            >
+
+                            <label
+                                class="form-check-label"
+                                for="showHourly"
+                            >
+                                Hiển thị kết quả theo giờ
+                            </label>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- NÚT TÍNH TOÁN -->
+                <button
+                    type="button"
+                    id="calculateBtn"
+                    class="btn calculate-button btn-lg w-100"
+                >
+                    🧮 TÍNH TOÁN DỮ LIỆU
+                </button>
+
+            </div>
+
+
+            <!-- CỘT PHẢI -->
+            <div class="col-lg-5">
+
+                <section class="card result-card sticky-lg-top">
+
+                    <div class="card-body p-4">
+
+                        <h2 class="section-title">
+                            📊 Kết quả tính toán
+                        </h2>
+
+                        <p class="result-description">
+                            Kết quả đã bao gồm số lượng Camera
+                            và tùy chọn dự phòng.
+                        </p>
+
+
+                        <div class="result-item">
+
+                            <div class="result-icon">
+                                ⏱️
+                            </div>
+
+                            <div>
+                                <span>
+                                    Dung lượng theo giờ
+                                </span>
+
+                                <strong id="hourResult">
+                                    0 MB
+                                </strong>
+                            </div>
+
+                        </div>
+
+
+                        <div class="result-item">
+
+                            <div class="result-icon">
+                                📅
+                            </div>
+
+                            <div>
+                                <span>
+                                    Dung lượng mỗi ngày
+                                </span>
+
+                                <strong id="dayResult">
+                                    0 GB
+                                </strong>
+                            </div>
+
+                        </div>
+
+
+                        <div class="result-item">
+
+                            <div class="result-icon">
+                                🗓️
+                            </div>
+
+                            <div>
+                                <span>
+                                    Dung lượng mỗi tháng
+                                </span>
+
+                                <strong id="monthResult">
+                                    0 GB
+                                </strong>
+                            </div>
+
+                        </div>
+
+
+                        <div class="sim-result-box">
+
+                            <span>
+                                Gói SIM đề xuất
+                            </span>
+
+                            <strong id="simResult">
+                                --
+                            </strong>
+
+                        </div>
+
+
+                        <div class="alert alert-warning mt-4 mb-0">
+
+                            <strong>Lưu ý:</strong>
+
+                            Kết quả chỉ mang tính ước tính.
+                            Dữ liệu thực tế phụ thuộc vào bitrate,
+                            chất lượng hình ảnh và điều kiện mạng.
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <footer class="footer-section">
+
+        <div class="container text-center">
+
+            <p class="mb-1">
+                Công cụ ước tính dữ liệu 4G cho Camera EZVIZ
+            </p>
+
+            <small>
+                Dung lượng thực tế có thể thay đổi tùy theo môi trường sử dụng.
+            </small>
+
+        </div>
+
+    </footer>
+
+
+    <!-- Bootstrap JavaScript -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"
+    ></script>
+
+    <!-- JavaScript của dự án -->
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>

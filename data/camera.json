@@ -1,0 +1,54 @@
+[
+    {
+        "id": "hb8-lite-4g",
+        "model": "HB8 Lite 4G",
+        "resolution": "2K",
+        "codec": "H.265",
+        "bitrate": 1,
+        "description": "Camera pin ngoài trời kết nối mạng 4G",
+        "battery": "5200 mAh",
+        "network": "4G LTE",
+        "ai": "Phát hiện người",
+        "installation": "Ngoài trời",
+        "image": "images/cameras/hb8-lite-4g.png"
+    },
+    {
+        "id": "eb8-4g",
+        "model": "EB8 4G",
+        "resolution": "2K",
+        "codec": "H.265",
+        "bitrate": 1.2,
+        "description": "Camera quay quét dùng pin, kết nối mạng 4G",
+        "battery": "10400 mAh",
+        "network": "4G LTE",
+        "ai": "Phát hiện người",
+        "installation": "Ngoài trời",
+        "image": "images/cameras/eb8-4g.png"
+    },
+    {
+        "id": "cb3-4g",
+        "model": "CB3 4G",
+        "resolution": "2K",
+        "codec": "H.265",
+        "bitrate": 0.8,
+        "description": "Camera pin thông minh, thiết kế nhỏ gọn",
+        "battery": "5200 mAh",
+        "network": "4G LTE",
+        "ai": "Phát hiện người",
+        "installation": "Ngoài trời",
+        "image": "images/cameras/cb3-4g.png"
+    },
+    {
+        "id": "h8c-4g",
+        "model": "H8c 4G",
+        "resolution": "4MP",
+        "codec": "H.265",
+        "bitrate": 1.5,
+        "description": "Camera quay quét ngoài trời, kết nối mạng 4G",
+        "battery": "Dùng nguồn điện",
+        "network": "4G LTE",
+        "ai": "Phát hiện người",
+        "installation": "Ngoài trời",
+        "image": "images/cameras/h8c-4g.png"
+    }
+]
