@@ -3,7 +3,6 @@
 // =============================
 
 const cameraModel = document.getElementById("cameraModel");
-const cameraImage = document.getElementById("cameraImage");
 const resolution = document.getElementById("resolution");
 const codec = document.getElementById("codec");
 const bitrateInfo = document.getElementById("bitrateInfo");
@@ -137,7 +136,7 @@ function showCameraImage(imagePath) {
         cameraImage.style.display = "none";
         cameraImageFallback.style.display = "flex";
     };
-
+    cameraImage.alt = getSelectedCamera()?.model || "Camera EZVIZ";
     cameraImage.src = imagePath;
 }
 
