@@ -592,7 +592,17 @@ body {
     letter-spacing: 1px;
     background: var(--ezviz-light);
 }
+.tools-section{
+    margin-bottom: 70px;
+}
 
+.calculator-heading{
+    margin-top:0;
+}
+
+.section-badge{
+    margin-bottom:14px;
+}
 
 /* ==============================
    ĐIỆN THOẠI
