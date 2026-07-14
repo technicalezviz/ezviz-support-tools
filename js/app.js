@@ -110,7 +110,7 @@ function updateCameraInfo() {
 
     cameraNetwork.textContent =
         camera.network || "4G LTE";
-cameraImage.src = imagePath;
+
     cameraAI.textContent =
         camera.ai || "Không có thông tin";
 
