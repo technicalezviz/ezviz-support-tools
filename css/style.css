@@ -885,3 +885,34 @@ body {
     }
 
 }
+/* SỬA LỖI TIÊU ĐỀ ĐÈ LÊN CARD CÔNG CỤ */
+
+.tools-section {
+    margin-top: -30px;
+    margin-bottom: 0;
+}
+
+#calculator.calculator-container {
+    margin-top: 45px !important;
+}
+
+.calculator-heading {
+    position: relative;
+    z-index: 1;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.section-badge {
+    margin-bottom: 14px;
+}
+
+@media (max-width: 767px) {
+    .tools-section {
+        margin-top: -22px;
+    }
+
+    #calculator.calculator-container {
+        margin-top: 30px !important;
+    }
+}
