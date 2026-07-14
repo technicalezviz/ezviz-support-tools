@@ -1,0 +1,17 @@
+[
+  {
+    "id": "cb2-4g",
+    "model": "CB2 4G",
+    "category": "Camera 4G",
+    "networkType": "4G",
+    "description": "Camera trong nhà",
+    "image": "images/cameras/cb2-4g.png",
+    "pdf": "documents/cameras/cb2-4g.pdf",
+    "keywords": [
+      "cb2",
+      "cb2 4g",
+      "camera 4g",
+      "camera trong nhà"
+    ]
+  }
+]

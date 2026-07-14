@@ -35,27 +35,33 @@ const dayResult = document.getElementById("dayResult");
 const monthResult = document.getElementById("monthResult");
 const simResult = document.getElementById("simResult");
 
-let cameraList = [];
+let calculatorCameraList = [];
+let productList = [];
 
 
 // =============================
 // ĐỌC DỮ LIỆU CAMERA.JSON
 // =============================
 
-async function loadCameras() {
+async function loadCalculatorCameras() {
     try {
-        const response = await fetch("./data/camera.json");
+        const response = await fetch(
+            "./data/calculator.json"
+        );
 
         if (!response.ok) {
-            throw new Error("Không thể đọc camera.json");
+            throw new Error(
+                "Không thể đọc calculator.json"
+            );
         }
 
-        cameraList = await response.json();
+        calculatorCameraList = await response.json();
 
         cameraModel.innerHTML = "";
 
-        cameraList.forEach((camera) => {
-            const option = document.createElement("option");
+        calculatorCameraList.forEach((camera) => {
+            const option =
+                document.createElement("option");
 
             option.value = camera.id;
             option.textContent = camera.model;
@@ -66,25 +72,51 @@ async function loadCameras() {
         updateCameraInfo();
 
     } catch (error) {
-        console.error(error);
+        console.error(
+            "Lỗi tải dữ liệu tính Data:",
+            error
+        );
 
         cameraModel.innerHTML = `
-            <option>Không tải được dữ liệu Camera</option>
+            <option>
+                Không tải được danh sách Camera 4G
+            </option>
         `;
-
-        resolution.textContent = "--";
-        codec.textContent = "--";
-        bitrateInfo.textContent = "--";
     }
 }
+async function loadProducts() {
+    try {
+        const response = await fetch("./data/products.json");
 
+        if (!response.ok) {
+            throw new Error(
+                `Không thể đọc products.json: ${response.status}`
+            );
+        }
+
+        productList = await response.json();
+
+        console.log(
+            "Danh sách sản phẩm đã tải:",
+            productList
+        );
+
+    } catch (error) {
+        console.error(
+            "Lỗi tải products.json:",
+            error
+        );
+
+        productList = [];
+    }
+}
 
 // =============================
 // HIỂN THỊ THÔNG TIN CAMERA
 // =============================
 
 function getSelectedCamera() {
-    return cameraList.find(
+    return calculatorCameraList.find(
         camera => camera.id === cameraModel.value
     );
 }
@@ -438,5 +470,206 @@ showHourly.addEventListener("change", () => {
 // KHỞI ĐỘNG WEBSITE
 // =============================
 
-updateModeArea();
-loadCameras();
+async function initializeApp() {
+    updateModeArea();
+
+    await Promise.all([
+        loadCalculatorCameras(),
+        loadProducts()
+    ]);
+}
+
+initializeApp();
+// =============================
+// TRA CỨU CAMERA
+// =============================
+
+const cameraSearchInput =
+    document.getElementById("cameraSearchInput");
+
+const cameraSearchSuggestions =
+    document.getElementById("cameraSearchSuggestions");
+
+const cameraLookupEmpty =
+    document.getElementById("cameraLookupEmpty");
+
+const cameraLookupResult =
+    document.getElementById("cameraLookupResult");
+
+const lookupCameraImage =
+    document.getElementById("lookupCameraImage");
+
+const lookupCameraName =
+    document.getElementById("lookupCameraName");
+
+const lookupCameraDescription =
+    document.getElementById("lookupCameraDescription");
+
+const lookupResolution =
+    document.getElementById("lookupResolution");
+
+const lookupCodec =
+    document.getElementById("lookupCodec");
+
+const lookupBitrate =
+    document.getElementById("lookupBitrate");
+
+const lookupBattery =
+    document.getElementById("lookupBattery");
+
+const lookupNetwork =
+    document.getElementById("lookupNetwork");
+
+const lookupInstallation =
+    document.getElementById("lookupInstallation");
+
+const lookupAI =
+    document.getElementById("lookupAI");
+
+const lookupPdfButton =
+    document.getElementById("lookupPdfButton");
+
+
+function normalizeSearchText(value) {
+    return String(value || "")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .trim();
+}
+
+
+function findCamerasForLookup(keyword) {
+    const searchValue = normalizeSearchText(keyword);
+
+    if (!searchValue || productList.length === 0) {
+        return [];
+    }
+
+    return productList.filter((product) => {
+        const searchableText = [
+            product.model,
+            product.category,
+            product.networkType,
+            product.description,
+            ...(product.keywords || [])
+        ]
+        .map(normalizeSearchText)
+        .join(" ");
+
+        return searchableText.includes(searchValue);
+    });
+}
+
+
+function renderCameraSuggestions(cameras) {
+    cameraSearchSuggestions.innerHTML = "";
+
+    if (cameras.length === 0) {
+        cameraSearchSuggestions.classList.remove("active");
+        return;
+    }
+
+    cameras.slice(0, 8).forEach((camera) => {
+        const button = document.createElement("button");
+
+        button.type = "button";
+        button.className = "search-suggestion-item";
+
+        button.innerHTML = `
+            <img
+                src="${camera.image}"
+                alt="${camera.model}"
+            >
+
+            <span>
+                <strong>${camera.model}</strong>
+                <small>
+                    ${camera.resolution} ·
+                    ${camera.description}
+                </small>
+            </span>
+        `;
+
+        button.addEventListener("click", () => {
+            cameraSearchInput.value = camera.model;
+            cameraSearchSuggestions.classList.remove("active");
+            showCameraLookupResult(camera);
+        });
+
+        cameraSearchSuggestions.appendChild(button);
+    });
+
+    cameraSearchSuggestions.classList.add("active");
+}
+
+
+function showCameraLookupResult(camera) {
+    cameraLookupEmpty.hidden = true;
+    cameraLookupResult.hidden = false;
+
+    lookupCameraImage.src =
+        `${camera.image}?v=${Date.now()}`;
+
+    lookupCameraImage.alt = camera.model;
+
+    lookupCameraName.textContent = camera.model;
+
+    lookupCameraDescription.textContent =
+        camera.description || "Camera EZVIZ";
+
+    lookupResolution.textContent =
+        camera.resolution || "--";
+
+    lookupCodec.textContent =
+        camera.codec || "--";
+
+    lookupBitrate.textContent =
+        camera.bitrate
+            ? `${camera.bitrate} Mbps`
+            : "--";
+
+    lookupBattery.textContent =
+        camera.battery || "--";
+
+    lookupNetwork.textContent =
+        camera.network || "--";
+
+    lookupInstallation.textContent =
+        camera.installation || "--";
+
+    lookupAI.textContent =
+        camera.ai || "Không có thông tin";
+
+    if (camera.pdf) {
+        lookupPdfButton.href = camera.pdf;
+        lookupPdfButton.style.display = "inline-flex";
+    } else {
+        lookupPdfButton.removeAttribute("href");
+        lookupPdfButton.style.display = "none";
+    }
+}
+
+
+if (cameraSearchInput) {
+    cameraSearchInput.addEventListener("input", () => {
+        const results =
+            findCamerasForLookup(cameraSearchInput.value);
+
+        renderCameraSuggestions(results);
+    });
+
+    cameraSearchInput.addEventListener("keydown", (event) => {
+        if (event.key !== "Enter") {
+            return;
+        }
+
+        const results =
+            findCamerasForLookup(cameraSearchInput.value);
+
+        if (results.length > 0) {
+            showCameraLookupResult(results[0]);
+            cameraSearchSuggestions.classList.remove("active");
+        }
+    });
+}

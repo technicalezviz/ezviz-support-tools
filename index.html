@@ -60,14 +60,14 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#">
+                    <a class="nav-link" href="#cameraLookup">
                         Tra cứu Camera
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#">
-                        Tính dung lượng HDD
+                    <a class="nav-link" href="#storageCalculator">
+                        Tính dung lượng lưu trữ
                     </a>
                 </li>
 
@@ -106,7 +106,7 @@
 
         <div class="col-md-4">
 
-            <div class="tool-card active-tool">
+            <div class="tool-card">
 
                 <div class="tool-icon">
                     <i class="bi bi-reception-4"></i>
@@ -124,38 +124,41 @@
 
         <div class="col-md-4">
 
-            <div class="tool-card upcoming-tool">
-
-                <div class="tool-icon">
-                    <i class="bi bi-search"></i>
-                </div>
-
-                <div>
-                    <h3>Tra cứu Camera</h3>
-                    <p>Xem thông số và tính năng của từng model.</p>
-                    <span>Sắp ra mắt</span>
-                </div>
-
+        <a
+            class="tool-card lookup-tool-card"
+            href="#cameraLookup"
+        >
+            <div class="tool-icon">
+                <i class="bi bi-search"></i>
             </div>
+
+            <div>
+                <h3>Tra cứu Camera</h3>
+                <p>Xem thông số và tính năng của từng model.</p>
+            </div>
+        </a>
 
         </div>
 
 
         <div class="col-md-4">
 
-            <div class="tool-card upcoming-tool">
-
+            <a
+                class="tool-card storage-tool-card"
+                href="#storageCalculator"
+            >
                 <div class="tool-icon">
-                    <i class="bi bi-device-hdd-fill"></i>
+                    <i class="bi bi-sd-card-fill"></i>
                 </div>
 
                 <div>
-                    <h3>Tính dung lượng HDD</h3>
-                    <p>Tính thời gian lưu trữ theo số lượng Camera.</p>
-                    <span>Sắp ra mắt</span>
-                </div>
+                    <h3>Tính dung lượng lưu trữ</h3>
 
-            </div>
+                    <p>
+                        Tính dung lượng thẻ nhớ microSD hoặc HDD.
+                    </p>
+                </div>
+            </a>
 
         </div>
 
@@ -666,6 +669,706 @@
 
     </main>
 
+<section
+    id="cameraLookup"
+    class="container camera-lookup-section py-5"
+>
+    <div class="card calculator-card">
+
+        <div class="card-body p-4">
+
+            <div class="text-center mb-4">
+
+                <span class="section-badge">
+                    TRA CỨU SẢN PHẨM
+                </span>
+
+                <h2 class="lookup-title mt-3">
+                    TRA CỨU TÀI LIỆU CAMERA EZVIZ
+                </h2>
+
+                <p class="text-secondary">
+                    Nhập tên model Camera để mở tài liệu thông số sản phẩm.
+                </p>
+
+            </div>
+
+            <div class="lookup-search-box">
+
+                <i class="bi bi-search"></i>
+
+                <input
+                    type="search"
+                    id="cameraSearchInput"
+                    placeholder="Ví dụ: CB2 4G, EB8 4G, H8c 4G..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+            <div
+                id="cameraSearchSuggestions"
+                class="camera-search-suggestions"
+            ></div>
+
+            <div
+                id="cameraLookupEmpty"
+                class="lookup-empty text-center"
+            >
+                <i class="bi bi-file-earmark-pdf"></i>
+
+                <p>
+                    Hãy nhập tên model để bắt đầu tra cứu tài liệu.
+                </p>
+            </div>
+
+            <div
+                id="cameraLookupResult"
+                class="lookup-result"
+                hidden
+            >
+
+                <div class="lookup-product">
+
+                    <div class="lookup-image-box">
+
+                        <img
+                            id="lookupCameraImage"
+                            src=""
+                            alt="Camera EZVIZ"
+                        >
+
+                    </div>
+
+                    <div class="lookup-main-info">
+
+                        <span class="camera-product-badge">
+                            TÀI LIỆU SẢN PHẨM
+                        </span>
+
+                        <h3 id="lookupCameraName">
+                            --
+                        </h3>
+
+                        <p id="lookupCameraDescription">
+                            --
+                        </p>
+
+                        <div class="lookup-actions">
+
+                            <a
+                                id="lookupPdfButton"
+                                class="btn btn-danger btn-lg"
+                                href="#"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <i class="bi bi-file-earmark-pdf-fill"></i>
+                                Mở tài liệu PDF
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!--
+                    Các ID dưới đây được giữ lại nhưng ẩn đi,
+                    để JavaScript hiện tại không bị lỗi.
+                -->
+
+                <div class="d-none" aria-hidden="true">
+
+                    <span id="lookupResolution"></span>
+
+                    <span id="lookupCodec"></span>
+
+                    <span id="lookupBitrate"></span>
+
+                    <span id="lookupBattery"></span>
+
+                    <span id="lookupNetwork"></span>
+
+                    <span id="lookupInstallation"></span>
+
+                    <span id="lookupAI"></span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<section
+    id="storageCalculator"
+    class="container storage-calculator-section py-5"
+>
+    <div class="storage-heading text-center mb-4">
+
+        <span class="section-badge">
+            STORAGE CALCULATOR
+        </span>
+
+        <h2 class="mt-3">
+            TÍNH DUNG LƯỢNG LƯU TRỮ CAMERA
+        </h2>
+
+        <p>
+            Ước tính dung lượng microSD hoặc HDD dựa trên
+            bitrate, thời gian ghi hình và số lượng camera.
+        </p>
+
+    </div>
+
+    <div class="row g-4">
+
+        <!-- FORM NHẬP -->
+        <div class="col-lg-7">
+
+            <section class="card calculator-card">
+
+                <div class="card-body p-4">
+
+                    <h2 class="section-title">
+                        <i class="bi bi-sliders"></i>
+                        Thông số ghi hình
+                    </h2>
+
+                    <!-- CÁCH TÍNH -->
+                    <div class="mb-4">
+
+                        <label class="form-label fw-semibold">
+                            Cách tính
+                        </label>
+
+                        <div class="row g-3">
+
+                            <div class="col-md-6">
+                                <label class="usage-option">
+
+                                    <input
+                                        class="form-check-input"
+                                        type="radio"
+                                        name="storageCalculationMode"
+                                        value="required"
+                                        checked
+                                    >
+
+                                    <span>
+                                        <strong>
+                                            Tính dung lượng cần mua
+                                        </strong>
+
+                                        <small>
+                                            Nhập số ngày muốn lưu
+                                        </small>
+                                    </span>
+
+                                </label>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="usage-option">
+
+                                    <input
+                                        class="form-check-input"
+                                        type="radio"
+                                        name="storageCalculationMode"
+                                        value="retention"
+                                    >
+
+                                    <span>
+                                        <strong>
+                                            Tính số ngày lưu được
+                                        </strong>
+
+                                        <small>
+                                            Nhập dung lượng đang có
+                                        </small>
+                                    </span>
+
+                                </label>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- LOẠI LƯU TRỮ -->
+                    <div class="mb-4">
+
+                        <label class="form-label fw-semibold">
+                            Loại thiết bị lưu trữ
+                        </label>
+
+                        <div class="row g-3">
+
+                            <div class="col-md-6">
+                                <label class="storage-type-option">
+
+                                    <input
+                                        type="radio"
+                                        name="storageType"
+                                        value="microsd"
+                                        checked
+                                    >
+
+                                    <span class="storage-type-icon">
+                                        <i class="bi bi-sd-card-fill"></i>
+                                    </span>
+
+                                    <span>
+                                        <strong>Thẻ nhớ microSD</strong>
+                                        <small>
+                                            Phù hợp camera độc lập
+                                        </small>
+                                    </span>
+
+                                </label>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="storage-type-option">
+
+                                    <input
+                                        type="radio"
+                                        name="storageType"
+                                        value="hdd"
+                                    >
+
+                                    <span class="storage-type-icon">
+                                        <i class="bi bi-device-hdd-fill"></i>
+                                    </span>
+
+                                    <span>
+                                        <strong>HDD / Đầu ghi</strong>
+                                        <small>
+                                            Phù hợp nhiều camera
+                                        </small>
+                                    </span>
+
+                                </label>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row g-3">
+
+                        <!-- CHẾ ĐỘ GHI -->
+                        <div class="col-md-6">
+
+                            <label
+                                for="storageRecordingMode"
+                                class="form-label fw-semibold"
+                            >
+                                Chế độ ghi hình
+                            </label>
+
+                            <select
+                                id="storageRecordingMode"
+                                class="form-select form-select-lg"
+                            >
+                                <option value="continuous">
+                                    Ghi hình liên tục
+                                </option>
+
+                                <option value="event">
+                                    Ghi hình theo sự kiện
+                                </option>
+                            </select>
+
+                        </div>
+
+                        <!-- SỐ GIỜ -->
+                        <div class="col-md-6">
+
+                            <label
+                                for="storageHoursPerDay"
+                                class="form-label fw-semibold"
+                            >
+                                Số giờ ghi mỗi ngày
+                            </label>
+
+                            <input
+                                type="number"
+                                id="storageHoursPerDay"
+                                class="form-control form-control-lg"
+                                value="24"
+                                min="0.1"
+                                max="24"
+                                step="0.1"
+                            >
+
+                        </div>
+
+                        <!-- ĐỘ PHÂN GIẢI -->
+                        <div class="col-md-6">
+
+                            <label
+                                for="storageResolution"
+                                class="form-label fw-semibold"
+                            >
+                                Độ phân giải
+                            </label>
+
+                            <select
+                                id="storageResolution"
+                                class="form-select form-select-lg"
+                            >
+                                <option value="1080p">
+                                    1080P
+                                </option>
+
+                                <option value="2k" selected>
+                                    2K
+                                </option>
+
+                                <option value="3k">
+                                    3K
+                                </option>
+
+                                <option value="4k">
+                                    4K
+                                </option>
+                            </select>
+
+                        </div>
+
+                        <!-- CODEC -->
+                        <div class="col-md-6">
+
+                            <label
+                                for="storageCodec"
+                                class="form-label fw-semibold"
+                            >
+                                Chuẩn nén video
+                            </label>
+
+                            <select
+                                id="storageCodec"
+                                class="form-select form-select-lg"
+                            >
+                                <option value="h264">
+                                    H.264
+                                </option>
+
+                                <option value="h265" selected>
+                                    H.265
+                                </option>
+                            </select>
+
+                        </div>
+
+                        <!-- FPS -->
+                        <div class="col-md-6">
+
+                            <label
+                                for="storageFps"
+                                class="form-label fw-semibold"
+                            >
+                                Số khung hình
+                            </label>
+
+                            <select
+                                id="storageFps"
+                                class="form-select form-select-lg"
+                            >
+                                <option value="15">15 FPS</option>
+                                <option value="20">20 FPS</option>
+                                <option value="25" selected>
+                                    25 FPS
+                                </option>
+                                <option value="30">30 FPS</option>
+                            </select>
+
+                        </div>
+
+                        <!-- SỐ CAMERA -->
+                        <div class="col-md-6">
+
+                            <label
+                                for="storageCameraCount"
+                                class="form-label fw-semibold"
+                            >
+                                Số lượng Camera
+                            </label>
+
+                            <input
+                                type="number"
+                                id="storageCameraCount"
+                                class="form-control form-control-lg"
+                                value="1"
+                                min="1"
+                                max="256"
+                            >
+
+                        </div>
+
+                    </div>
+
+                    <!-- TỰ GỢI Ý BITRATE -->
+                    <div class="form-check option-check my-4">
+
+                        <input
+                            class="form-check-input"
+                            type="checkbox"
+                            id="autoStorageBitrate"
+                            checked
+                        >
+
+                        <label
+                            class="form-check-label"
+                            for="autoStorageBitrate"
+                        >
+                            Tự gợi ý bitrate theo độ phân giải và chuẩn nén
+                        </label>
+
+                    </div>
+
+                    <!-- BITRATE -->
+                    <div class="mb-4">
+
+                        <label
+                            for="storageBitrate"
+                            class="form-label fw-semibold"
+                        >
+                            Bitrate mỗi Camera
+                        </label>
+
+                        <div class="input-group input-group-lg">
+
+                            <input
+                                type="number"
+                                id="storageBitrate"
+                                class="form-control"
+                                value="2048"
+                                min="1"
+                                step="1"
+                            >
+
+                            <span class="input-group-text">
+                                Kbps
+                            </span>
+
+                        </div>
+
+                        <small
+                            id="storageBitrateHint"
+                            class="text-secondary"
+                        >
+                            Bitrate gợi ý, người dùng có thể chỉnh lại.
+                        </small>
+
+                    </div>
+
+                    <!-- NHẬP SỐ NGÀY -->
+                    <div
+                        id="storageRequiredFields"
+                        class="mb-4"
+                    >
+
+                        <label
+                            for="storageRetentionDays"
+                            class="form-label fw-semibold"
+                        >
+                            Số ngày muốn lưu
+                        </label>
+
+                        <input
+                            type="number"
+                            id="storageRetentionDays"
+                            class="form-control form-control-lg"
+                            value="7"
+                            min="1"
+                            max="3650"
+                        >
+
+                    </div>
+
+                    <!-- NHẬP DUNG LƯỢNG ĐANG CÓ -->
+                    <div
+                        id="storageExistingFields"
+                        class="mb-4"
+                        hidden
+                    >
+
+                        <label
+                            for="storageExistingCapacity"
+                            class="form-label fw-semibold"
+                        >
+                            Dung lượng lưu trữ đang có
+                        </label>
+
+                        <div class="input-group input-group-lg">
+
+                            <input
+                                type="number"
+                                id="storageExistingCapacity"
+                                class="form-control"
+                                value="128"
+                                min="1"
+                                step="1"
+                            >
+
+                            <select
+                                id="storageExistingUnit"
+                                class="form-select"
+                                style="max-width: 120px;"
+                            >
+                                <option value="gb">
+                                    GB
+                                </option>
+
+                                <option value="tb">
+                                    TB
+                                </option>
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-check option-check mb-4">
+
+                        <input
+                            class="form-check-input"
+                            type="checkbox"
+                            id="storageSafetyMargin"
+                            checked
+                        >
+
+                        <label
+                            class="form-check-label"
+                            for="storageSafetyMargin"
+                        >
+                            Cộng thêm 20% dung lượng dự phòng
+                        </label>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        id="calculateStorageBtn"
+                        class="btn calculate-button btn-lg w-100"
+                    >
+                        TÍNH DUNG LƯỢNG LƯU TRỮ
+                    </button>
+
+                </div>
+
+            </section>
+
+        </div>
+
+        <!-- KẾT QUẢ -->
+        <div class="col-lg-5">
+
+            <section class="card result-card sticky-lg-top">
+
+                <div class="card-body p-4">
+
+                    <h2 class="section-title">
+                        <i class="bi bi-pie-chart-fill"></i>
+                        Kết quả lưu trữ
+                    </h2>
+
+                    <p class="result-description">
+                        Kết quả được tính theo bitrate đã nhập.
+                    </p>
+
+                    <div class="result-item">
+
+                        <div class="result-icon">
+                            <i class="bi bi-calendar-day"></i>
+                        </div>
+
+                        <div>
+                            <span>Dung lượng mỗi ngày</span>
+
+                            <strong id="storageDailyResult">
+                                0 GB
+                            </strong>
+                        </div>
+
+                    </div>
+
+                    <div
+                        id="storageRequiredResultItem"
+                        class="result-item"
+                    >
+
+                        <div class="result-icon">
+                            <i class="bi bi-database-fill"></i>
+                        </div>
+
+                        <div>
+                            <span>Dung lượng yêu cầu</span>
+
+                            <strong id="storageRequiredResult">
+                                0 GB
+                            </strong>
+                        </div>
+
+                    </div>
+
+                    <div
+                        id="storageDaysResultItem"
+                        class="result-item"
+                        hidden
+                    >
+
+                        <div class="result-icon">
+                            <i class="bi bi-calendar-range-fill"></i>
+                        </div>
+
+                        <div>
+                            <span>Số ngày lưu ước tính</span>
+
+                            <strong id="storageDaysResult">
+                                0 ngày
+                            </strong>
+                        </div>
+
+                    </div>
+
+                    <div class="storage-recommendation">
+
+                        <span>Khuyến nghị</span>
+
+                        <strong id="storageRecommendation">
+                            --
+                        </strong>
+
+                        <small id="storageRecommendationNote">
+                            Nhập thông số rồi bấm tính toán.
+                        </small>
+
+                    </div>
+
+                    <div class="alert alert-warning mt-4 mb-0">
+
+                        <strong>Lưu ý:</strong>
+
+                        Dung lượng thực tế có thể thay đổi theo
+                        bitrate thực tế, chuyển động trong khung hình,
+                        âm thanh và chế độ ghi hình.
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </div>
+</section>
 
     <footer class="footer-section">
 
@@ -693,6 +1396,7 @@
 
     <!-- JavaScript của dự án -->
     <script src="js/app.js"></script>
+    <script src="js/storage-calculator.js"></script>
 
 </body>
 

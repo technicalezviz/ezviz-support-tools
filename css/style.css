@@ -916,3 +916,367 @@ body {
         margin-top: 30px !important;
     }
 }
+/* ==============================
+   TRA CỨU CAMERA
+============================== */
+
+.camera-lookup-section {
+    scroll-margin-top: 90px;
+}
+
+.lookup-title {
+    color: #243447;
+    font-size: 28px;
+    font-weight: 750;
+}
+
+.lookup-search-box {
+    position: relative;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.lookup-search-box i {
+    position: absolute;
+    top: 50%;
+    left: 18px;
+    z-index: 2;
+    color: var(--ezviz-blue);
+    font-size: 20px;
+    transform: translateY(-50%);
+}
+
+.lookup-search-box input {
+    width: 100%;
+    padding: 16px 18px 16px 52px;
+    border: 1px solid #d4dee8;
+    border-radius: 14px;
+    font-size: 16px;
+    background: #fff;
+    transition: 0.2s ease;
+}
+
+.lookup-search-box input:focus {
+    outline: none;
+    border-color: var(--ezviz-blue);
+    box-shadow: 0 0 0 4px rgba(0, 130, 214, 0.12);
+}
+
+.camera-search-suggestions {
+    display: none;
+    max-width: 720px;
+    margin: 8px auto 0;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    border-radius: 13px;
+    background: #fff;
+    box-shadow: 0 14px 35px rgba(40, 75, 110, 0.13);
+}
+
+.camera-search-suggestions.active {
+    display: block;
+}
+
+.search-suggestion-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    padding: 13px 16px;
+    border: 0;
+    border-bottom: 1px solid #edf2f7;
+    text-align: left;
+    background: #fff;
+    cursor: pointer;
+}
+
+.search-suggestion-item:last-child {
+    border-bottom: 0;
+}
+
+.search-suggestion-item:hover {
+    background: var(--ezviz-light);
+}
+
+.search-suggestion-item img {
+    width: 52px;
+    height: 52px;
+    padding: 4px;
+    object-fit: contain;
+    border-radius: 10px;
+    background: #f8fafc;
+}
+
+.search-suggestion-item strong {
+    display: block;
+    color: #243447;
+}
+
+.search-suggestion-item small {
+    color: var(--text-secondary);
+}
+
+.lookup-empty {
+    padding: 55px 20px 25px;
+    color: var(--text-secondary);
+}
+
+.lookup-empty i {
+    display: block;
+    margin-bottom: 12px;
+    color: #a8cde5;
+    font-size: 55px;
+}
+
+.lookup-result {
+    margin-top: 30px;
+}
+
+.lookup-product {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 28px;
+    padding: 24px;
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    background: linear-gradient(135deg, #f8fcff, #eef8fe);
+}
+
+.lookup-image-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 260px;
+    border: 1px solid #dce8f2;
+    border-radius: 16px;
+    background: #fff;
+}
+
+.lookup-image-box img {
+    width: 100%;
+    height: 250px;
+    padding: 20px;
+    object-fit: contain;
+}
+
+.lookup-main-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.lookup-main-info h3 {
+    margin: 8px 0;
+    color: #243447;
+    font-size: 32px;
+    font-weight: 750;
+}
+
+.lookup-main-info p {
+    color: var(--text-secondary);
+    font-size: 16px;
+}
+
+.lookup-actions {
+    margin-top: 15px;
+}
+
+.lookup-spec-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 20px;
+}
+
+.lookup-spec-item {
+    padding: 17px;
+    border: 1px solid var(--border-color);
+    border-radius: 13px;
+    background: #fbfdff;
+}
+
+.lookup-spec-item span {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--text-secondary);
+    font-size: 13px;
+}
+
+.lookup-spec-item strong {
+    color: var(--ezviz-blue);
+    font-size: 17px;
+}
+
+.lookup-ai-box {
+    margin-top: 14px;
+    padding: 18px;
+    border-radius: 13px;
+    background: var(--ezviz-light);
+}
+
+.lookup-ai-box span {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--text-secondary);
+    font-size: 13px;
+}
+
+.lookup-ai-box strong {
+    color: #243447;
+}
+
+.lookup-tool-card {
+    color: inherit;
+    text-decoration: none;
+}
+
+@media (max-width: 767px) {
+    .lookup-product {
+        grid-template-columns: 1fr;
+    }
+
+    .lookup-spec-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .lookup-title {
+        font-size: 23px;
+    }
+}
+/* ==============================
+   STORAGE CALCULATOR
+============================== */
+
+.storage-calculator-section {
+    scroll-margin-top: 90px;
+}
+
+.storage-heading h2 {
+    color: #243447;
+    font-size: 29px;
+    font-weight: 750;
+}
+
+.storage-heading p {
+    color: var(--text-secondary);
+}
+
+.storage-tool-card {
+    color: inherit;
+    text-decoration: none;
+}
+
+.storage-type-option {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    height: 100%;
+    padding: 16px;
+
+    border: 1px solid #d8e4ee;
+    border-radius: 14px;
+
+    background: #ffffff;
+    cursor: pointer;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.storage-type-option:hover {
+    transform: translateY(-2px);
+    border-color: var(--ezviz-blue);
+    background: #f7fcff;
+}
+
+.storage-type-option input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--ezviz-blue);
+}
+
+.storage-type-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+
+    border-radius: 12px;
+
+    color: var(--ezviz-blue);
+    font-size: 22px;
+
+    background: var(--ezviz-light);
+}
+
+.storage-type-option strong,
+.storage-type-option small {
+    display: block;
+}
+
+.storage-type-option small {
+    margin-top: 3px;
+    color: var(--text-secondary);
+}
+
+.storage-recommendation {
+    margin-top: 18px;
+    padding: 24px;
+
+    border-radius: 16px;
+
+    color: #ffffff;
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #009d79,
+            #16c79a
+        );
+}
+
+.storage-recommendation span,
+.storage-recommendation strong,
+.storage-recommendation small {
+    display: block;
+}
+
+.storage-recommendation span {
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.storage-recommendation strong {
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.storage-recommendation small {
+    margin-top: 8px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+@media (max-width: 767px) {
+    .storage-heading h2 {
+        font-size: 23px;
+    }
+}
+.storage-tool-card,
+.storage-tool-card:hover,
+.storage-tool-card:focus,
+.storage-tool-card:active {
+    color: inherit;
+    text-decoration: none;
+}
+
+.storage-tool-card h3,
+.storage-tool-card p {
+    text-decoration: none;
+}
