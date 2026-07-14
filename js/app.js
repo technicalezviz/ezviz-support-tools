@@ -110,7 +110,7 @@ function updateCameraInfo() {
 
     cameraNetwork.textContent =
         camera.network || "4G LTE";
-
+cameraImage.src = imagePath;
     cameraAI.textContent =
         camera.ai || "Không có thông tin";
 
@@ -137,7 +137,7 @@ function showCameraImage(imagePath) {
         cameraImageFallback.style.display = "flex";
     };
     cameraImage.alt = getSelectedCamera()?.model || "Camera EZVIZ";
-    cameraImage.src = imagePath;
+    cameraImage.src = `${imagePath}?v=${Date.now()}`;
 }
 
 
