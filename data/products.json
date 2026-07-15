@@ -13,5 +13,35 @@
       "camera 4g",
       "camera trong nhà"
     ]
+  },
+  {
+    "id": "eb8-pro-4g",
+    "model": "EB8 Pro 4G",
+    "category": "Camera 4G",
+    "networkType": "4G",
+    "description": "Camera ngoài trời",
+    "image": "images/cameras/eb8-pro-4g.png",
+    "pdf": "documents/cameras/eb8-pro-4g.pdf",
+    "keywords": [
+      "eb8 pro",
+      "eb8 pro 4g",
+      "camera 4g",
+      "camera ngoài trời"
+    ]
+  },
+{
+    "id": "eb8-pro-ranger-4g",
+    "model": "EB8 Pro Ranger 4G",
+    "category": "Camera 4G",
+    "networkType": "4G",
+    "description": "Camera ngoài trời",
+    "image": "images/cameras/eb8-pro-ranger-4g.png",
+    "pdf": "documents/cameras/eb8-pro-ranger-4g.pdf",
+    "keywords": [
+      "eb8 pro ranger",
+      "eb8 pro ranger 4g",
+      "camera 4g",
+      "camera ngoài trời"
+    ]
   }
 ]
